@@ -1,37 +1,31 @@
 <idea-plugin>
-  <id>com.github.ofofs.jca</id>
-  <name>Java Compile Annotation Plugin</name>
-  <version>1.0</version>
-  <vendor email="java@kangyonggan.com" url="https://github.com/ofofs">ofofs</vendor>
+    <id>com.github.ofofs.jca</id>
+    <name>Java Compile Annotation Plugin</name>
+    <version>1.0</version>
+    <vendor email="java@kangyonggan.com" url="https://github.com/ofofs">ofofs</vendor>
 
-  <description><![CDATA[
+    <description><![CDATA[
       Java Compile Annotation Plugin.<br>
     ]]></description>
 
-  <change-notes><![CDATA[
+    <change-notes><![CDATA[
       Plugin Init.<br>
     ]]>
-  </change-notes>
+    </change-notes>
 
-  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-  <idea-version since-build="145.0"/>
+    <idea-version since-build="145.0"/>
 
-  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-       on how to target different products -->
-  <!-- uncomment to enable plugin in all products
-  <depends>com.intellij.modules.lang</depends>
-  -->
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
 
-  <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
-  </extensions>
-
-  <actions>
-    <!-- Add your actions here -->
-      <action id="com.github.ofofs.GetterAction" class="com.github.ofofs.jca.action.GetterAction" text="GetterAction"
-              description="GetterAction">
-          <add-to-group group-id="HelpMenu" anchor="first"/>
-      </action>
-  </actions>
+    <actions>
+        <group id="JcaActionGroup" text="Jca" description="Refactor code with jca" popup="true">
+            <action id="defaultGetter" class="com.github.ofofs.jca.action.GetterAction"
+                    text="Default @Getter"
+                    description="Action to replace all getter methods with Java Compile @Getter annotation">
+            </action>
+            <add-to-group group-id="RefactoringMenu" anchor="last"/>
+        </group>
+    </actions>
 
 </idea-plugin>
